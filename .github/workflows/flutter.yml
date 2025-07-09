@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Flutter
+      - name: Set up Flutter with Dart 3.7+
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.1'  # ✅ Required: Dart 3.7 is included
-          channel: stable
+          flutter-version: '3.22.0-0.3.pre'  # ✅ This includes Dart 3.7+
+          channel: beta
           cache: true
 
       - name: Show Flutter version
