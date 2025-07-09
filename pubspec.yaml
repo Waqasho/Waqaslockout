@@ -1,0 +1,25 @@
+name: timer_app_fixed
+description: A Flutter app with timer, device admin access, and lock screen functionality.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.0
+  device_policy_manager: ^1.0.0 # For device admin access and lock
+  kiosk_mode: ^0.7.0 # For kiosk mode (latest, Kotlin 1.9+ compatible)
+  android_intent_plus: ^3.0.5 # For launching Android intents
+  android_alarm_manager_plus: ^3.0.4 # For scheduling
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
