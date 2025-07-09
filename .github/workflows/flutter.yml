@@ -14,20 +14,20 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.1' # ✅ includes Dart 3.7+
+          flutter-version: '3.22.1'  # ✅ Required: Dart 3.7 is included
           channel: stable
           cache: true
 
-      - name: Show Flutter Version
+      - name: Show Flutter version
         run: flutter --version
 
-      - name: Install Dependencies
+      - name: Get dependencies
         run: flutter pub get
 
-      - name: Analyze Code
+      - name: Analyze
         run: flutter analyze
 
       - name: Build APK
