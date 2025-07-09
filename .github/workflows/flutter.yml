@@ -2,33 +2,35 @@ name: Flutter CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    - name: Set up Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '3.22.1'  # ✅ Flutter with Dart >= 3.7.0
-        channel: 'stable'
-        cache: true
+      - name: Set up Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.1' # ✅ Must be >=3.7.0 for kiosk_mode 0.7.0
+          channel: stable
+          cache: true
 
-    - name: Run Flutter Doctor
-      run: flutter doctor -v
+      - name: Check Dart and Flutter Version
+        run: |
+          flutter --version
+          dart --version
 
-    - name: Install Dependencies
-      run: flutter pub get
+      - name: Install Dependencies
+        run: flutter pub get
 
-    - name: Run Analyzer
-      run: flutter analyze
+      - name: Analyze Code
+        run: flutter analyze
 
-    - name: Run Tests
-      run: flutter test
+      - name: Run Tests
+        run: flutter test
